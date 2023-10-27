@@ -6,10 +6,7 @@ use bevy::prelude::*;
 struct NextMoveText;
 
 /// Initialize UiCamera and text
-fn init_next_move_text(
-    mut commands: Commands,
-    asset_server: ResMut<AssetServer>,
-) {
+fn init_next_move_text(mut commands: Commands, asset_server: ResMut<AssetServer>) {
     let font = asset_server.load("fonts/FiraSans-Bold.ttf");
 
     commands

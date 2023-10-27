@@ -48,7 +48,6 @@ fn create_board(
     }
 }
 
-
 #[derive(Resource)]
 struct SquareMaterials {
     highlight_color: Handle<StandardMaterial>,
@@ -268,7 +267,16 @@ impl Plugin for BoardPlugin {
             .init_resource::<PlayerTurn>()
             .add_event::<ResetSelectedEvent>()
             .add_systems(Startup, create_board)
-            .add_systems(Update, (select_square, move_piece, despawn_taken_pieces, select_piece).chain())
+            .add_systems(
+                Update,
+                (
+                    select_square,
+                    move_piece,
+                    despawn_taken_pieces,
+                    select_piece,
+                )
+                    .chain(),
+            )
             .add_systems(Update, reset_selected);
-        }
+    }
 }
