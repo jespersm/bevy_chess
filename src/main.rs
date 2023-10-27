@@ -18,9 +18,9 @@ fn main() {
                 title: "Chess!".to_string(),
                 resolution: WindowResolution::new(600., 600.),
                 ..Default::default()
-              }),
+            }),
             ..default()
-          }))
+        }))
         .add_plugins(DefaultPickingPlugins)
         .add_plugins(BoardPlugin)
         .add_plugins(PiecesPlugin)
@@ -35,11 +35,11 @@ fn setup(mut commands: Commands) {
         .spawn(Camera3dBundle {
             transform: Transform::from_matrix(Mat4::from_rotation_translation(
                 Quat::from_xyzw(-0.3, -0.5, -0.3, 0.5).normalize(),
-                Vec3::new(-7.0, 20.0, 4.0),
+                Vec3::new(-2.5, 11.0, 3.5),
             )),
             ..Default::default()
         })
-        .insert(RaycastPickCamera::default())   // Enable picking with this camera
+        .insert(RaycastPickCamera::default()) // Enable picking with this camera
         // Light
         .commands()
         .spawn(PointLightBundle {
